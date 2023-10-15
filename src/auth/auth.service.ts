@@ -20,6 +20,7 @@ export class AuthService {
     const userData = {
       email: registrationData.email,
       firstName: registrationData.firstName,
+      isChoosen: false,
     };
     return this.userService.create(userData, hashedPassword);
   }

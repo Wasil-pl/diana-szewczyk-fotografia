@@ -20,6 +20,7 @@ model User {
   email     String    @unique
   firstName String
   role      Role      @default(USER)
+  isChoosen Boolean   @default(false)
   password  Password?
   pictures  Picture[]
 
