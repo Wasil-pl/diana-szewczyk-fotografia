@@ -1,0 +1,25 @@
+@import '../../../styles/settings.scss';
+
+.heading {
+  font-family: $font-header;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  margin-bottom: 40px;
+  color: $color-text-dark;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 10px;
+
+  h1 {
+    font-size: $title-size;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background-color: $color-text-dark;
+      margin: 20px auto;
+    }
+  }
+}

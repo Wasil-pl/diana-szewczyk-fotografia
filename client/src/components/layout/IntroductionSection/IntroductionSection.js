@@ -13,7 +13,7 @@ const IntroductionSection = () => {
           />
         </div>
         <div className={styles.text}>
-          <p>Kreowanie historii nowego życia, rodziny i macierzyństwa.</p>
+          <p>Każda historia jest unikalna.</p>
           <h2>
             Dokumentowanie wspólnych chwil, czułości i magicznych wspomnień z
             dzieciństwa.

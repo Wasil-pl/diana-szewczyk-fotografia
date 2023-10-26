@@ -1,0 +1,53 @@
+@import '../../../styles/settings.scss';
+
+.section {
+  background-color: $color-background-grey;
+  padding: 50px 0;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .rightSide {
+      margin-left: auto;
+    }
+
+    .leftSide {
+      margin-right: auto;
+    }
+
+    .item {
+      max-width: 700px;
+      position: relative;
+      margin-top: 80px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .infoLeftSide {
+        position: absolute;
+        top: 50%;
+        right: -75%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 75%;
+        background-color: $color-background-lighter;
+        box-shadow: 0px 0px 26px -12px rgba(66, 68, 90, 1);
+      }
+
+      .infoRightSide {
+        position: absolute;
+        top: 50%;
+        left: -18%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 75%;
+        background-color: $color-background-lighter;
+        box-shadow: 0px 0px 26px -12px rgba(66, 68, 90, 1);
+      }
+    }
+  }
+}
