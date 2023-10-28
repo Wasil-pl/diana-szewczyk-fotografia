@@ -21,13 +21,13 @@ export class UsersService {
     });
   }
 
-  /* --------------------- GET USER BY EMAIL --------------------- */
+  /* --------------------- GET USER BY SURNAME --------------------- */
 
-  public getUserByEmail(
-    email: User['email'],
+  public getUserBySurname(
+    surname: User['surname'],
   ): Promise<(User & { password: Password }) | null> {
     return this.prismaService.user.findUnique({
-      where: { email },
+      where: { surname },
       include: { password: true },
     });
   }

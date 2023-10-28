@@ -14,7 +14,7 @@ const MainMenuLoginForm = ({ action }) => {
   } = useForm();
 
   const handleSubmit = (data) => {
-    action({ surName: data.login, password: data.password });
+    action({ surname: data.login, password: data.password });
   };
 
   return (

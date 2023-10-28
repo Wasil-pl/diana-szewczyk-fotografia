@@ -1,12 +1,39 @@
 import React from 'react';
 import styles from './MainMenu.module.scss';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CaretDownFill } from 'react-bootstrap-icons';
 import MainMenuLogin from './MainMenuLogin';
+import ModalComponent from '../../ModalComponent/ModalComponent';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetUserState } from '../../../../redux/users/userActions';
+import {
+  getLoggedState,
+  getLoginSuccessState,
+  getUserRole,
+} from '../../../../redux/users/userSelectors';
+import { modalMessages } from '../../../../consts/modalMessages';
+import { logoutUserRequest } from '../../../../redux/users/userThunks';
 
 export const MainMenu = ({ isFixed }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const menuClasses = isFixed ? styles.fixedMenu : styles.menuContainer;
+
+  const isLogged = useSelector(getLoggedState);
+  const loginSuccess = useSelector(getLoginSuccessState);
+  const userRole = useSelector(getUserRole);
+  const isAdmin = userRole === 'ADMIN';
+  const isUser = userRole === 'USER';
+
+  const handleCloseModal = () => {
+    dispatch(resetUserState());
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUserRequest());
+    navigate('/');
+  };
 
   return (
     <div className={menuClasses}>
@@ -47,19 +74,30 @@ export const MainMenu = ({ isFixed }) => {
 
             <li>Kontakt</li>
 
-            <li>Twoje Zdjęcia</li>
+            {isUser && <li>Twoje Zdjęcia</li>}
 
-            <li>Panel Administratora</li>
+            {isAdmin && <li>Panel Administratora</li>}
 
-            <li className={styles.primaryMenu}>
-              Login <CaretDownFill size={18} />
-              <div className={styles.subMenu}>
-                <MainMenuLogin />
-              </div>
-            </li>
+            {isLogged && <li onClick={handleLogout}>Logout</li>}
+
+            {!isLogged && (
+              <li className={styles.primaryMenu}>
+                Login <CaretDownFill size={18} />
+                <div className={styles.subMenu}>
+                  <MainMenuLogin />
+                </div>
+              </li>
+            )}
           </ul>
         </div>
       </Container>
+
+      <ModalComponent
+        show={loginSuccess}
+        onClose={handleCloseModal}
+        headerText={modalMessages.loginSuccess.headerText}
+        textMessage={modalMessages.loginSuccess.textMessage}
+      />
     </div>
   );
 };

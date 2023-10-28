@@ -18,8 +18,7 @@ export class AuthService {
   public async register(registrationData: RegisterDTO) {
     const hashedPassword = await bcrypt.hash(registrationData.password, 10);
     const userData = {
-      email: registrationData.email,
-      firstName: registrationData.firstName,
+      surname: registrationData.surname,
       isChoosen: false,
     };
     return this.userService.create(userData, hashedPassword);
@@ -27,8 +26,8 @@ export class AuthService {
 
   /* --------------------- VALIDATE USER --------------------- */
 
-  public async validateUser(email: string, password: string) {
-    const user = await this.userService.getUserByEmail(email);
+  public async validateUser(surname: string, password: string) {
+    const user = await this.userService.getUserBySurname(surname);
     if (
       user &&
       (await bcrypt.compare(password, user.password.hashedPassword))
@@ -43,7 +42,7 @@ export class AuthService {
   /* --------------------- CREATE SESSION --------------------- */
 
   public async createSession(user: any) {
-    const payload = { email: user.email, sub: user.id };
+    const payload = { surname: user.surname, sub: user.id };
 
     const accessToken = this.jwtService.sign(payload, {
       secret: this.configService.get('jwt.secret'),

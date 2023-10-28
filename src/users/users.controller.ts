@@ -76,6 +76,6 @@ export class UsersController {
       throw new NotFoundException(`User with id ${id} not found`);
     }
     await this.userService.delete(id);
-    return { message: `User ${user.email} deleted` };
+    return { message: `User ${user.surname} deleted` };
   }
 }

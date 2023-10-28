@@ -6,8 +6,7 @@ function getUserAdmin() {
   return [
     {
       id: 'fd105551-0f0d-4a9f-bc41-c559c8a17259',
-      email: 'admin@admin.com',
-      firstName: 'Admin',
+      surname: 'Admin',
       password: 'admin',
       role: Role.ADMIN,
     },
