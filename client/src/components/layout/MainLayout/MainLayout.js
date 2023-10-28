@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { updateViewportMode } from '../../../redux/screenSizeRedux';
 import { HeroSection } from '../../features/HeroSection/index';
 import { MainMenu } from '../../features/HeroSection/components/MainMenu';
+import Contact from '../Contact/Contact';
+import Footer from '../Footer/Footer';
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -32,8 +34,9 @@ const MainLayout = ({ children }) => {
   return (
     <div>
       <MainMenu />
-      <HeroSection />
       {children}
+      <Contact />
+      <Footer />
     </div>
   );
 };

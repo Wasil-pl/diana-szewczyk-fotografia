@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './MainMenuLogin.module.scss';
+import MainMenuLoginForm from './MainMenuLoginForm';
 
 const MainMenuLogin = () => {
   return (
     <div>
-      <h1>MainMenuLogin</h1>
+      <MainMenuLoginForm />
     </div>
   );
 };

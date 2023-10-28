@@ -1,10 +1,13 @@
+@import '../../../../styles/settings.scss';
+
 .formLogin {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 5px 20px;
-  width: 250px;
+  color: $color-text-dark;
+  font-size: ($base-size * 1.1);
 
   .inputBox {
     margin-bottom: 20px;

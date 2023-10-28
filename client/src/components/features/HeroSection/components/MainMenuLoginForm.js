@@ -14,7 +14,7 @@ const MainMenuLoginForm = ({ action }) => {
   } = useForm();
 
   const handleSubmit = (data) => {
-    action({ email: data.login, password: data.password });
+    action({ surName: data.login, password: data.password });
   };
 
   return (
@@ -24,30 +24,30 @@ const MainMenuLoginForm = ({ action }) => {
       onSubmit={validate(handleSubmit)}
     >
       <Form.Group className={styles.inputBox}>
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Nazwisko</Form.Label>
         <Form.Control
           {...register('login', {
             required: errorMessages.required,
             pattern: {
-              value: patterns.emailPattern,
-              message: errorMessages.emailPattern,
+              value: patterns.surNamePattern,
+              message: errorMessages.surNamePattern,
             },
           })}
-          type="email"
-          placeholder="Email address"
-          autoComplete="email"
+          type="surName"
+          placeholder="Nazwisko"
+          autoComplete="surName"
           required
         />
         {errors.login && <Error>{errors.login?.message}</Error>}
       </Form.Group>
       <Form.Group className={styles.inputBox}>
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Hasło</Form.Label>
         <Form.Control
           {...register('password', {
             required: errorMessages.required,
           })}
           type="password"
-          placeholder="Password"
+          placeholder="Hasło"
           required
           autoComplete="current-password"
         />

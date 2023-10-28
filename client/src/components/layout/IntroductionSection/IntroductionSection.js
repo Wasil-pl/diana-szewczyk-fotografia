@@ -13,20 +13,20 @@ const IntroductionSection = () => {
           />
         </div>
         <div className={styles.text}>
-          <p>Każda historia jest unikalna.</p>
+          <p>Każda historia jest wyjątkowa.</p>
           <h2>
-            Dokumentowanie wspólnych chwil, czułości i magicznych wspomnień z
-            dzieciństwa.
+            Życie to nieustanna podróż, a każdy z nas ma swoją własną,
+            niepowtarzalną opowieść do opowiedzenia.
           </h2>
           <p>
-            Nasze dzieci zmieniają się tak szybko, a obserwowanie ich dorastania
-            przez lata dzieciństwa może sprawiać wrażenie, jakby piasek
-            przesuwał się między naszymi palcami. Mogę pomóc ci w zatrzymaniu
-            tego rozdziału w życiu twojej rodziny, niezależnie od tego, czy
-            oczekujesz swojego pierwszego dziecka, powiększasz rodzinę czy
-            chcesz udokumentować radosne chwile codzienności w życiu swoich
-            dzieci - trochę jak wręczanie im kapsuły czasu do otwarcia w
-            przyszłości.
+            Czasem zapominamy, jak ważne jest zatrzymywanie chwil, które
+            stanowią tkankę naszego życia. Dzieci rosną tak szybko, że czasem
+            trudno nadążyć za zmianami. Mogę pomóc Ci w uwiecznieniu tych
+            drogocennych momentów w życiu Twojej rodziny, niezależnie od tego,
+            czy jesteś wyczekującym, czy doświadczonym rodzicem chcącym
+            upamiętnić piękne chwile codzienności swoich dzieci. Razem możemy
+            stworzyć kapsułę czasu pełną wspomnień, które będą cieszyć serca
+            Waszej rodziny przez lata.
           </p>
         </div>
       </Container>

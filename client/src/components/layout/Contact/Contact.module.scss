@@ -1,0 +1,74 @@
+@import '../../../styles/settings.scss';
+
+.wrapper {
+  background-color: $color-background-dark;
+
+  .box {
+    display: flex;
+    padding: 50px 0;
+
+    .logo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 70%;
+      }
+    }
+
+    .contact {
+      flex: 1;
+      border-left: 1px solid $color-border-hero-section;
+      border-right: 1px solid $color-border-hero-section;
+
+      h2 {
+        font-family: $font-header;
+        font-size: $title-size;
+        color: $color-text;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-family: $font-text;
+        font-size: $base-size;
+        color: $color-text;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .socialLinks {
+      flex: 1;
+      text-align: center;
+
+      h2 {
+        font-family: $font-header;
+        font-size: $title-size;
+        color: $color-text;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      svg {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        fill: $color-text;
+        transition: $transition;
+
+        &:hover {
+          fill: $color-background-glass;
+          transition: $transition;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+  }
+}
