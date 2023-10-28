@@ -1,0 +1,57 @@
+@import '../../../styles/settings.scss';
+
+.section {
+  padding: 100px 0;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+
+    .images {
+      flex: 0 50%;
+      position: relative;
+      padding: 50px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+
+      .image2 {
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        border: 15px solid $color-background-light;
+      }
+    }
+
+    .info {
+      flex: 0 50%;
+      padding: 20px 80px;
+
+      h2 {
+        text-align: center;
+        font-size: ($title-size / 1.5);
+        font-family: $font-header;
+        letter-spacing: 5px;
+        line-height: 30px;
+        text-transform: uppercase;
+
+        color: $color-text-dark;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: $base-size;
+        font-family: $font-text;
+        color: $color-text-dark;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

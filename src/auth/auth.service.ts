@@ -20,6 +20,7 @@ export class AuthService {
     const userData = {
       surname: registrationData.surname,
       isChoosen: false,
+      package: registrationData.package,
     };
     return this.userService.create(userData, hashedPassword);
   }

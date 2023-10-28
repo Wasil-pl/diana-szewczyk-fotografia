@@ -1,0 +1,58 @@
+@import '../../../styles/settings.scss';
+
+.section {
+  padding: 80px 0;
+  margin-bottom: 100px;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+
+    .info {
+      flex: 0 50%;
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.295);
+      border-radius: 10px;
+
+      h1 {
+        font-size: ($hero-size);
+        letter-spacing: 5px;
+        line-height: 30px;
+        text-transform: uppercase;
+
+        color: $color-text-dark;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: ($title-size / 1.5);
+        font-family: $font-header;
+        letter-spacing: 5px;
+        line-height: 30px;
+        text-transform: uppercase;
+
+        color: $color-text-dark;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: ($base-size * 1.2);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: $font-text;
+        color: $color-text-dark;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.newBorn {
+  background-image: url('../../../../public/images/sessionInfo/info-new-born4.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-height: 700px;
+}

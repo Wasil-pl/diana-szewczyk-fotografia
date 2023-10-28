@@ -1,4 +1,4 @@
-import { PrismaClient, Role } from '@prisma/client';
+import { Package, PrismaClient, Role } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 const db = new PrismaClient();
 
@@ -9,6 +9,7 @@ function getUserAdmin() {
       surname: 'Admin',
       password: 'admin',
       role: Role.ADMIN,
+      package: Package.GOLD,
     },
   ];
 }

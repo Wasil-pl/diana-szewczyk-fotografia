@@ -6,7 +6,7 @@ import Home from './components/pages/Home/Home';
 import { checkUserSession } from './redux/users/userThunks';
 import { resetUserState } from './redux/users/userActions';
 import NotFoundPage from './components/pages/NotFoundPage/NotFoundPage';
-import NewBorn from './components/pages/NewBorn/NewBorn';
+import NewBornSection from './components/features/NewBornSection/NewBornSection';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const App = () => {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/sesja-noworodkowa" element={<NewBorn />} />
+        <Route path="/sesja-noworodkowa" element={<NewBornSection />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </MainLayout>

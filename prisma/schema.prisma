@@ -15,6 +15,12 @@ enum Role {
   USER
 }
 
+enum Package {
+  BRONZE
+  SILVER
+  GOLD
+}
+
 model User {
   id        String    @id @default(uuid())
   surname   String    @unique
@@ -22,6 +28,7 @@ model User {
   isChoosen Boolean   @default(false)
   password  Password?
   pictures  Picture[]
+  package   Package
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
