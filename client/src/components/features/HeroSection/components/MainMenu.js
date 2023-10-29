@@ -52,7 +52,9 @@ export const MainMenu = ({ isFixed }) => {
             <li className={styles.primaryMenu}>
               Portfolio <CaretDownFill size={18} />
               <ul className={styles.subMenu}>
-                <li>Noworodki</li>
+                <Link to={'/galeria/noworodki'}>
+                  <li>Noworodki</li>
+                </Link>
                 <li>Niemowalki i dzieci starsze</li>
                 <li>Ciążowe</li>
                 <li>Rodzinne</li>
@@ -63,7 +65,9 @@ export const MainMenu = ({ isFixed }) => {
             <li className={styles.primaryMenu}>
               Oferta <CaretDownFill size={18} />
               <ul className={styles.subMenu}>
-                <li>Sesja noworodkowa</li>
+                <Link to={'/sesja-noworodkowa'}>
+                  <li>Sesja noworodkowa</li>
+                </Link>
                 <li>Sesja dziecięca</li>
                 <li>Sesja kobieca</li>
                 <li>Sesja ciążowa</li>
@@ -76,7 +80,19 @@ export const MainMenu = ({ isFixed }) => {
 
             {isUser && <li>Twoje Zdjęcia</li>}
 
-            {isAdmin && <li>Panel Administratora</li>}
+            {isAdmin && (
+              <li className={styles.primaryMenu}>
+                Panel Administratora <CaretDownFill size={18} />
+                <ul className={styles.subMenu}>
+                  <Link to={'/wszyscy-uzytkownicy'}>
+                    <li>Klienci</li>
+                  </Link>
+                  <Link to={'/rejestracja'}>
+                    <li>Dodaj Klienta</li>
+                  </Link>
+                </ul>
+              </li>
+            )}
 
             {isLogged && <li onClick={handleLogout}>Logout</li>}
 

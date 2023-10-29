@@ -9,7 +9,7 @@ const IntroductionSection = () => {
         <div className={styles.image}>
           <img
             alt={'dziecko'}
-            src={process.env.PUBLIC_URL + 'images/introduction/1.jfif'}
+            src={process.env.PUBLIC_URL + '/images/introduction/1.jfif'}
           />
         </div>
         <div className={styles.text}>

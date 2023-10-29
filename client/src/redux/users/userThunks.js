@@ -11,6 +11,8 @@ import {
   endUserRequest,
   endUserLoginRequest,
   getUserRole,
+  endUserRegisterRequest,
+  deleteUser,
 } from './userActions';
 
 export const loadUsersRequest = () => {
@@ -41,6 +43,20 @@ export const loadUserRequest = () => {
   };
 };
 
+export const loadSingleUserRequest = (id) => {
+  return async (dispatch) => {
+    dispatch(startUserRequest());
+    try {
+      const data = await httpClient.get(`${API_URL}/api/users/${id}`);
+      dispatch(loadUser(data));
+      dispatch(endUserRequest());
+    } catch (error) {
+      const action = errorUserRequest({ message: error.message });
+      dispatch(action);
+    }
+  };
+};
+
 export const loginUserRequest = (user) => {
   return async (dispatch) => {
     dispatch(startUserRequest());
@@ -61,7 +77,7 @@ export const registerUserRequest = (user) => {
     dispatch(startUserRequest());
     try {
       await httpClient.post(`${API_URL}/api/auth/register`, user);
-      dispatch(endUserLoginRequest());
+      dispatch(endUserRegisterRequest());
     } catch (error) {
       const action = errorUserRegisterRequest({ message: error.message });
       dispatch(action);
@@ -110,6 +126,20 @@ export const logoutUserRequest = () => {
     try {
       await httpClient.delete(`${API_URL}/api/auth/logout`);
       dispatch(logoutUser());
+      dispatch(endUserRequest());
+    } catch (error) {
+      const action = errorUserRequest({ message: error.message });
+      dispatch(action);
+    }
+  };
+};
+
+export const deleteUserRequest = (id) => {
+  return async (dispatch) => {
+    dispatch(startUserRequest());
+    try {
+      await httpClient.delete(`${API_URL}/api/users/${id}`);
+      dispatch(deleteUser(id));
       dispatch(endUserRequest());
     } catch (error) {
       const action = errorUserRequest({ message: error.message });

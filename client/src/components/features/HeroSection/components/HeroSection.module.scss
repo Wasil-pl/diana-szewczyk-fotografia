@@ -28,6 +28,14 @@
   }
 }
 
+.newBorn-gallery {
+  @extend .newBorn;
+
+  &::after {
+    content: 'Galeria noworodkowa';
+  }
+}
+
 .wrapper {
   background-color: $color-background-dark;
 

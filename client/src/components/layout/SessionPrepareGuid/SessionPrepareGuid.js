@@ -10,11 +10,9 @@ const SessionPrepareGuid = ({ content, image }) => {
         <Heading text={'Jak się przygotować'} />
         <div className={styles.wrapper}>
           <div className={styles.info}>
-            <p>
-              {content.map((paragraph) => (
-                <p>{paragraph}</p>
-              ))}
-            </p>
+            {content.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
           <div className={styles.images}>
             <img alt={'noworodek'} src={process.env.PUBLIC_URL + image} />

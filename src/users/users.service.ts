@@ -9,7 +9,9 @@ export class UsersService {
   /* --------------------- GET USERS --------------------- */
 
   public getUsers(): Promise<User[]> {
-    return this.prismaService.user.findMany();
+    return this.prismaService.user.findMany({
+      include: { pictures: true },
+    });
   }
 
   /* --------------------- GET USER BY ID --------------------- */

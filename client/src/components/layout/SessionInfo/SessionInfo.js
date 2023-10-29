@@ -20,11 +20,10 @@ const SessionInfo = ({ image1, image2, content }) => {
           </div>
           <div className={styles.info}>
             <h2>{TEXT_CONTENT.newBorn.title}</h2>
-            <p>
-              {content.map((paragraph) => (
-                <p>{paragraph}</p>
-              ))}
-            </p>
+
+            {content.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </Container>

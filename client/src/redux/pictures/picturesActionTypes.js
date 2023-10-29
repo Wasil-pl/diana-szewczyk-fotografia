@@ -1,0 +1,13 @@
+const createActionName = (name) => `app/products/${name}`;
+export const START_REQUEST = createActionName('START_REQUEST');
+export const ERROR_REQUEST = createActionName('ERROR_REQUEST');
+export const END_REQUEST = createActionName('END_REQUEST');
+export const ADD_PICTURES = createActionName('ADD_PICTURES');
+export const ADD_CHECKBOX = createActionName('ADD_CHECKBOX');
+export const DELETE_PICTURES = createActionName('DELETE_PICTURES');
+export const LOAD_PICTURES = createActionName('LOAD_PICTURES');
+export const ADD_PICTURES_SUCCESS = createActionName('ADD_PICTURES_SUCCESS');
+export const ADD_PICTURES_ERROR = createActionName('ADD_PICTURES_ERROR');
+export const RESET_PICTURES_STATES = createActionName('RESET_PICTURES_STATES');
+export const ADD_CHECKBOX_SUCCESS = createActionName('ADD_CHECKBOX_SUCCESS');
+export const ADD_CHECKBOX_ERROR = createActionName('ADD_CHECKBOX_ERROR');

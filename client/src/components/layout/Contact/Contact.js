@@ -11,7 +11,7 @@ const Contact = () => {
           <div className={styles.logo}>
             <img
               alt="logo"
-              src={process.env.PUBLIC_URL + 'images/logo-white-ds.png'}
+              src={process.env.PUBLIC_URL + '/images/logo-white-ds.png'}
             />
           </div>
           <div className={styles.contact}>

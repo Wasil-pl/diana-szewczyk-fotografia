@@ -19,9 +19,9 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+    PicturesModule,
     UsersModule,
     AuthModule,
-    PicturesModule,
     PrismaModule,
     ConfigModule.forRoot({
       load: [configuration],

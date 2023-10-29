@@ -1,30 +1,9 @@
 export const maxDisplayedProducts = 3;
 
-export const platformOptions = ['PC', 'PLAYSTATION', 'XBOX', 'NINTENDO'];
-
-export const orderStatusOptions = [
-  'PENDING',
-  'PREPARING',
-  'SHIPPED',
-  'DELIVERED',
-];
-
-export const fileNames = [
-  'mainPicture',
-  'pictureOne',
-  'pictureTwo',
-  'pictureThree',
-  'pictureFour',
-  'pictureFive',
-];
-
-export const labels = [
-  'Main Picture',
-  'First picture',
-  'Second picture',
-  'Third picture',
-  'Fourth picture',
-  'Fifth picture',
-];
+export const PACKAGE = {
+  BRONZE: 10,
+  SILVER: 15,
+  GOLD: 20,
+};
 
 export const registerSuccessMessage = 'Account created successfully!';

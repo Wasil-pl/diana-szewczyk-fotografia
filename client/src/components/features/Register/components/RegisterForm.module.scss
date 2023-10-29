@@ -1,0 +1,26 @@
+@import '../../../../styles/settings.scss';
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .formLogin {
+    max-width: 300px;
+    flex: 1;
+
+    div {
+      margin-bottom: 15px;
+
+      label {
+        font-size: $base-size;
+        color: $color-text-dark;
+      }
+    }
+
+    .buttonBox {
+      text-align: center;
+    }
+  }
+}

@@ -12,18 +12,27 @@ import { UsersService } from './users.service';
 import { User } from '@prisma/client';
 import { AdminAuthGuard } from 'src/auth/admin-auth.guard';
 import { JwtAuthGuard } from 'src/auth/jwt-auth-guard';
+import { deleteFile } from 'src/utils/deleteFile';
+import { PicturesService } from 'src/pictures/pictures.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private pictureService: PicturesService,
+  ) {}
 
   /* --------------------- GET USERS --------------------- */
 
   @UseGuards(AdminAuthGuard)
   @UseGuards(JwtAuthGuard)
   @Get('/')
-  public getUsers() {
-    return this.userService.getUsers();
+  public async getUsers() {
+    const users = this.userService.getUsers();
+    if (!users) {
+      throw new NotFoundException(`Users not found`);
+    }
+    return users;
   }
 
   /* --------------------- GET USER ROLE --------------------- */
@@ -54,8 +63,8 @@ export class UsersController {
 
   /* --------------------- GET USER BY ID --------------------- */
 
-  // @UseGuards(AdminAuthGuard)
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(AdminAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get('/:id')
   public getUserById(@Param('id', new ParseUUIDPipe()) id: User['id']) {
     const user = this.userService.getUser(id);
@@ -75,7 +84,17 @@ export class UsersController {
     if (!user) {
       throw new NotFoundException(`User with id ${id} not found`);
     }
+    const pictures = await this.pictureService.getUserPictures(id);
+    console.log('pictures:', pictures);
+
+    if (pictures.length > 0) {
+      for (const picture of pictures) {
+        deleteFile(picture.name);
+      }
+    }
+
     await this.userService.delete(id);
+
     return { message: `User ${user.surname} deleted` };
   }
 }

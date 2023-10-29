@@ -11,6 +11,7 @@ import {
   END_USER_LOGIN_REQUEST,
   END_USER_REGISTER_REQUEST,
   GET_USER_ROLE,
+  DELETE_USER,
 } from './userActionTypes';
 
 export const usersReducer = (
@@ -67,6 +68,11 @@ export const usersReducer = (
         registerError: null,
         loginSuccess: false,
         registerSuccess: false,
+      };
+    case DELETE_USER:
+      return {
+        ...statePart,
+        list: statePart.list.filter((user) => user.id !== action.payload),
       };
     default:
       return statePart;

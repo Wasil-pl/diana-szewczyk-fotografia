@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import initialState from './initialstate';
 import { usersReducer } from './users/usersReducer';
+import { picturesReducer } from './pictures/picturesReducer';
 import screenReducer from './screenSizeRedux';
 
 const subreducers = {
   users: usersReducer,
   screenMode: screenReducer,
+  pictures: picturesReducer,
 };
 
 // combine reducers

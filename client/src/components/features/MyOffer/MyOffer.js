@@ -19,7 +19,7 @@ const MyOffer = () => {
           <div className={`${styles.item} ${styles.rightSide}`}>
             <img
               alt={'noworodek'}
-              src={process.env.PUBLIC_URL + 'images/offer/noworodek.jfif'}
+              src={process.env.PUBLIC_URL + '/images/offer/noworodek.jfif'}
             />
             <div className={styles.infoRightSide}>
               <h2>sesja noworodkowa</h2>
@@ -42,7 +42,7 @@ const MyOffer = () => {
           <div className={`${styles.item} ${styles.leftSide}`}>
             <img
               alt={'dziecko'}
-              src={process.env.PUBLIC_URL + 'images/offer/dziecko.jfif'}
+              src={process.env.PUBLIC_URL + '/images/offer/dziecko.jfif'}
             />
             <div className={styles.infoLeftSide}>
               <h2>sesja dziecięca</h2>
@@ -60,7 +60,7 @@ const MyOffer = () => {
           <div className={`${styles.item} ${styles.rightSide}`}>
             <img
               alt={'kobieta'}
-              src={process.env.PUBLIC_URL + 'images/offer/kobieta.jfif'}
+              src={process.env.PUBLIC_URL + '/images/offer/kobieta.jfif'}
             />
             <div className={styles.infoRightSide}>
               <h2>sesja kobieca</h2>
@@ -77,7 +77,7 @@ const MyOffer = () => {
           <div className={`${styles.item} ${styles.leftSide}`}>
             <img
               alt={'kobieta w ciązy'}
-              src={process.env.PUBLIC_URL + 'images/offer/kobietaWciąży.jfif'}
+              src={process.env.PUBLIC_URL + '/images/offer/kobietaWciąży.jfif'}
             />
             <div className={styles.infoLeftSide}>
               <h2>sesja ciążowa (studio lub plener)</h2>
@@ -96,7 +96,7 @@ const MyOffer = () => {
               alt={'kobieta w ciązy'}
               src={
                 process.env.PUBLIC_URL +
-                'images/offer/oferta-sesja-ciazowa-noworodkowa.jpg'
+                '/images/offer/oferta-sesja-ciazowa-noworodkowa.jpg'
               }
             />
             <div className={styles.infoRightSide}>
@@ -117,7 +117,7 @@ const MyOffer = () => {
               alt={'rodzina'}
               src={
                 process.env.PUBLIC_URL +
-                'images/offer/oferta-sesja-rodzinna.jpg'
+                '/images/offer/oferta-sesja-rodzinna.jpg'
               }
             />
             <div className={styles.infoLeftSide}>

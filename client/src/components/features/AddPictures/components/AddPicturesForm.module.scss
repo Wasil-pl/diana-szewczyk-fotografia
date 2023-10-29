@@ -1,0 +1,48 @@
+@import '../../../../styles/settings.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  width: 100%;
+  padding: 0 15px;
+
+  form {
+    text-align: center;
+
+    .boxContainer {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    input {
+      max-width: 400px;
+    }
+  }
+
+  .chipContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    .chip {
+      margin: 5px;
+      border: 2px solid $color-background-grey;
+      border-radius: 5px;
+      font-size: $base-size;
+      padding: 0 5px;
+    }
+  }
+
+  .confirmButton {
+    margin: 20px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid $color-background-grey;
+    font-size: $base-size;
+    font-weight: 700;
+    color: $color-text;
+  }
+}

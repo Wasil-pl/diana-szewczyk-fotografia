@@ -1,9 +1,9 @@
 export const TEXT_CONTENT = {
   newBorn: {
-    image1: 'images/sessionInfo/info-new-born.jfif',
-    image2: 'images/sessionInfo/info-new-born2.jfif',
-    image3: 'images/sessionInfo/info-new-born3.jfif',
-    image4: 'images/sessionInfo/info-new-born4.jfif',
+    image1: '/images/sessionInfo/info-new-born.jfif',
+    image2: '/images/sessionInfo/info-new-born2.jfif',
+    image3: '/images/sessionInfo/info-new-born3.jfif',
+    image4: '/images/sessionInfo/info-new-born4.jfif',
     title: 'Witaj w magicznym świecie sesji noworodkowych!',
     text: [
       `Chwila narodzin Twojego maleństwa to jeden z najpiękniejszych momentów w Twoim życiu. Te pierwsze dni pełne czułości, delikatności i niesamowitej miłości zasługują na uwiecznienie w wyjątkowy sposób. Sesja noworodkowa to niepowtarzalna okazja, aby zatrzymać te ulotne chwile na zawsze.`,

@@ -10,11 +10,9 @@ const SessionPrice = ({ content, variant = '', price }) => {
           <div className={styles.info}>
             <h1>Cennik</h1>
             <h2>{price} zł</h2>
-            <p>
-              {content.map((paragraph) => (
-                <p>{paragraph}</p>
-              ))}
-            </p>
+            {content.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </Container>

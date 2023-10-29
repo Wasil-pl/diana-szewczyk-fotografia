@@ -11,6 +11,7 @@ import {
   END_USER_REGISTER_REQUEST,
   END_USER_LOGIN_REQUEST,
   GET_USER_ROLE,
+  DELETE_USER,
 } from './userActionTypes';
 
 export const loadUsers = (payload) => ({ payload, type: LOAD_USERS });
@@ -46,3 +47,4 @@ export const resetUserState = (payload) => ({
   payload,
   type: RESET_USER_STATE,
 });
+export const deleteUser = (payload) => ({ payload, type: DELETE_USER });

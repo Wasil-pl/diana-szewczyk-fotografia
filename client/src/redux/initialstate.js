@@ -10,6 +10,20 @@ const initialState = {
     list: [],
     userRole: null,
   },
+  pictures: {
+    success: false,
+    loading: false,
+    error: null,
+    all: [],
+    images: {
+      success: false,
+      error: null,
+    },
+    checkbox: {
+      success: false,
+      error: null,
+    },
+  },
 };
 
 export default initialState;

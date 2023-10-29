@@ -33,6 +33,14 @@ export class PicturesService {
     });
   }
 
+  /* --------------------- GET USER PICTURES --------------------- */
+
+  public getUserPictures(userId: User['id']): Promise<Picture[]> {
+    return this.prismaService.picture.findMany({
+      where: { userId },
+    });
+  }
+
   /* --------------------- PUT CHECKBOX --------------------- */
 
   public async checkBoxPictures(
