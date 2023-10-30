@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.98376b6b.css",
+    "main.js": "/static/js/main.1841e20d.js",
+    "static/media/info-new-born4.jfif": "/static/media/info-new-born4.31b357bda8bcf1599d42.jfif",
+    "static/media/newBorn.jfif": "/static/media/newBorn.e793fd4f04831ed67d20.jfif",
+    "static/media/hero.jpg": "/static/media/hero.5d5dc77210ce6ed8d497.jpg",
+    "index.html": "/index.html",
+    "main.98376b6b.css.map": "/static/css/main.98376b6b.css.map",
+    "main.1841e20d.js.map": "/static/js/main.1841e20d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98376b6b.css",
+    "static/js/main.1841e20d.js"
+  ]
+}
