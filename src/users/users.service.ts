@@ -10,6 +10,7 @@ export class UsersService {
 
   public getUsers(): Promise<User[]> {
     return this.prismaService.user.findMany({
+      where: { role: 'USER' },
       include: { pictures: true },
     });
   }

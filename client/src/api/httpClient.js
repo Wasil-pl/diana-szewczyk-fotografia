@@ -35,5 +35,5 @@ export const httpClient = {
   post: (url, body) => makeRequest(url, 'POST', body),
   put: (url, body) => makeRequest(url, 'PUT', body),
   patch: (url, body) => makeRequest(url, 'PATCH', body),
-  delete: (url) => makeRequest(url, 'DELETE'),
+  delete: (url, body) => makeRequest(url, 'DELETE', body),
 };

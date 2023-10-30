@@ -94,18 +94,6 @@ export class PicturesController {
       }
     }
 
-    const requestCheckedCount = picturesData.filter(
-      (pictureData) => pictureData.checkBox === true,
-    ).length;
-
-    if (requestCheckedCount > 2) {
-      throw new BadRequestException(
-        'You can only select up to 3 pictures at a time.',
-      );
-    }
-
-    // const checkBoxPicture = checkBoxString === 'true';
-
     return Promise.all(
       picturesData.map((pictureData) =>
         this.picturesService.checkBoxPictures(
@@ -121,7 +109,7 @@ export class PicturesController {
 
   @UseGuards(AdminAuthGuard)
   @UseGuards(JwtAuthGuard)
-  @Delete('/delete')
+  @Delete('/remove')
   public async deletePictures(@Body() picturesData: deletePictureDto[]) {
     if (!picturesData || picturesData.length === 0) {
       throw new BadRequestException('No pictures data provided.');

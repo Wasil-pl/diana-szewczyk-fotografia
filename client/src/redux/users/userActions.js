@@ -12,6 +12,7 @@ import {
   END_USER_LOGIN_REQUEST,
   GET_USER_ROLE,
   DELETE_USER,
+  DELETE_ALL_USER_PICTURES,
 } from './userActionTypes';
 
 export const loadUsers = (payload) => ({ payload, type: LOAD_USERS });
@@ -48,3 +49,7 @@ export const resetUserState = (payload) => ({
   type: RESET_USER_STATE,
 });
 export const deleteUser = (payload) => ({ payload, type: DELETE_USER });
+export const deleteAllUserPictures = (payload) => ({
+  payload,
+  type: DELETE_ALL_USER_PICTURES,
+});

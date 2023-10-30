@@ -11,8 +11,16 @@ export const modalMessages = {
     headerText: (surname) => `Delete ${surname}?`,
     textMessage: 'Czy na pewno chcesz usunąć tego uzytkownika?',
   },
+  deletePicturesConfirm: {
+    headerText: 'Usuń zdjęcia',
+    textMessage: 'Czy na pewno chcesz usunąć te zdjęcia?',
+  },
   addImagesSuccess: {
     headerText: 'Dodano zdjęcia pomyślnie!',
-    textMessage: 'Możesz teraz dodać kolejne zdjęcia!',
+    textMessage: '',
+  },
+  addCheckboxSuccess: {
+    headerText: 'Zdjęcia zostały wybrane pomyślnie!',
+    textMessage: '',
   },
 };

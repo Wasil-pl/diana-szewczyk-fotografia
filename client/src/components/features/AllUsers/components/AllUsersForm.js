@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteUserRequest } from '../../../../redux/users/userThunks';
 import ModalComponent from '../../ModalComponent/ModalComponent';
 import { modalMessages } from '../../../../consts/modalMessages';
+import { deletePicturesRequest } from '../../../../redux/pictures/picturesThunks';
 
 const AllUsersForm = ({ data }) => {
   const [pendingDeletion, setPendingDeletion] = useState(null);
@@ -14,13 +15,29 @@ const AllUsersForm = ({ data }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (id) => {
+  const handleAddPictures = (id) => {
     navigate(`/dodaj-zdjecia/${id}`);
+  };
+
+  const handleShowSelectedPictures = (id) => {
+    navigate(`/wybrane-zdjecia/${id}`);
   };
 
   const handleDeleteUser = (e) => {
     e.preventDefault();
     dispatch(deleteUserRequest(pendingDeletion.id));
+    clearPendingDeletion();
+  };
+
+  const handleDeletePictures = (e) => {
+    e.preventDefault();
+    const pictures = pendingDeletion.pictures.map((picture) => {
+      return { id: picture.id };
+    });
+
+    const userId = pendingDeletion.id;
+
+    dispatch(deletePicturesRequest(pictures, userId));
     clearPendingDeletion();
   };
 
@@ -46,24 +63,31 @@ const AllUsersForm = ({ data }) => {
                   : 'zdjęcia zostały dodane'}
               </Card.Text>
               <Card.Text className={styles.buttonContainer}>
-                {user.pictures.length !== 0 && (
+                {user.isChoosen === true && (
                   <Button
                     variant="outline-info"
-                    onClick={() => handleSubmit(user.id)}
+                    onClick={() => handleShowSelectedPictures(user.id)}
                     size="sm"
                   >
-                    {' '}
-                    Zobacz wybrane{' '}
+                    Zobacz wybrane
+                  </Button>
+                )}
+                {user.pictures.length !== 0 && (
+                  <Button
+                    variant="outline-danger"
+                    onClick={() => setPendingDeletion(user)}
+                    size="sm"
+                  >
+                    Usuń zdjęcia
                   </Button>
                 )}
                 {user.pictures.length === 0 && (
                   <Button
                     variant="outline-info"
-                    onClick={() => handleSubmit(user.id)}
+                    onClick={() => handleAddPictures(user.id)}
                     size="sm"
                   >
-                    {' '}
-                    Dodaj zdjęcia{' '}
+                    Dodaj zdjęcia
                   </Button>
                 )}
                 <Button
@@ -71,8 +95,7 @@ const AllUsersForm = ({ data }) => {
                   onClick={() => setPendingDeletion(user)}
                   size="sm"
                 >
-                  {' '}
-                  Usuń użytkownika{' '}
+                  Usuń użytkownika
                 </Button>
               </Card.Text>
             </Card.Body>
@@ -87,6 +110,15 @@ const AllUsersForm = ({ data }) => {
           pendingDeletion?.surname,
         )}
         textMessage={modalMessages.deleteUserConfirm.textMessage}
+        onCancel={clearPendingDeletion}
+        actionText="Delete"
+      />
+
+      <ModalComponent
+        show={!!pendingDeletion}
+        onClose={handleDeletePictures}
+        headerText={modalMessages.deletePicturesConfirm.headerText}
+        textMessage={modalMessages.deletePicturesConfirm.textMessage}
         onCancel={clearPendingDeletion}
         actionText="Delete"
       />

@@ -12,6 +12,7 @@ import { Register } from './components/features/Register/index';
 import { AllUsers } from './components/features/AllUsers/index';
 import { SingleUser } from './components/features/SingleUser';
 import { AddPictures } from './components/features/AddPictures/index';
+import { SelectedPictures } from './components/features/SelectedPictures/index';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,9 @@ const App = () => {
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/rejestracja" element={<Register />} />
         <Route path="/wszyscy-uzytkownicy" element={<AllUsers />} />
-        <Route path="/uzytkownik/:id" element={<SingleUser />} />
+        <Route path="/uzytkownik" element={<SingleUser />} />
         <Route path="/dodaj-zdjecia/:id" element={<AddPictures />} />
+        <Route path="/wybrane-zdjecia/:id" element={<SelectedPictures />} />
       </Routes>
     </MainLayout>
   );

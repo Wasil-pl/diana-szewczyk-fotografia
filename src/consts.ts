@@ -3,4 +3,9 @@ export const CORS_OPTIONS = {
   credentials: true,
 };
 
-export const acceptedFileTypes = ['image/png', 'image/gif', 'image/jpeg'];
+export const acceptedFileTypes = [
+  'image/png',
+  'image/gif',
+  'image/jpeg',
+  'image/jfif',
+];

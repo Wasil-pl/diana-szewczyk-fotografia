@@ -78,7 +78,11 @@ export const MainMenu = ({ isFixed }) => {
 
             <li>Kontakt</li>
 
-            {isUser && <li>Twoje Zdjęcia</li>}
+            {isUser && (
+              <Link to={'/uzytkownik'}>
+                <li>Twoje Zdjęcia</li>
+              </Link>
+            )}
 
             {isAdmin && (
               <li className={styles.primaryMenu}>

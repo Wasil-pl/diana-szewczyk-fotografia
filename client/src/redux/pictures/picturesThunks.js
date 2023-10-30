@@ -1,10 +1,10 @@
 import { httpClient } from '../../api/httpClient';
 import { httpClientFormData } from '../../api/httpClientFormData';
 import { API_URL } from '../../config';
+import { deleteAllUserPictures } from '../users/userActions';
 import {
   addCheckboxError,
   addCheckboxSuccess,
-  addPictures,
   addPicturesError,
   addPicturesSuccess,
   endRequest,
@@ -31,11 +31,7 @@ export const addPicturesRequest = (data) => {
   return async (dispatch) => {
     dispatch(startRequest());
     try {
-      const response = await httpClientFormData.post(
-        `${API_URL}/api/pictures`,
-        data,
-      );
-      dispatch(addPictures(response));
+      await httpClientFormData.post(`${API_URL}/api/pictures`, data);
       dispatch(addPicturesSuccess());
     } catch (error) {
       const action = addPicturesError({ message: error.message });
@@ -44,11 +40,12 @@ export const addPicturesRequest = (data) => {
   };
 };
 
-export const deletePicturesRequest = (id) => {
+export const deletePicturesRequest = (data, userId) => {
   return async (dispatch) => {
     dispatch(startRequest());
     try {
-      await httpClient.delete(`${API_URL}/api/pictures${id}`);
+      await httpClient.delete(`${API_URL}/api/pictures/remove`, data);
+      dispatch(deleteAllUserPictures(userId));
       dispatch(endRequest());
     } catch (error) {
       const action = errorRequest({ message: error.message });
@@ -57,11 +54,11 @@ export const deletePicturesRequest = (id) => {
   };
 };
 
-export const addCheckboxRequest = (id, data) => {
+export const addCheckboxRequest = (data) => {
   return async (dispatch) => {
     dispatch(startRequest());
     try {
-      await httpClient.patch(`${API_URL}/api/pictures${id}`, data);
+      await httpClient.post(`${API_URL}/api/pictures/checkbox`, data);
       dispatch(addCheckboxSuccess());
     } catch (error) {
       const action = addCheckboxError({ message: error.message });

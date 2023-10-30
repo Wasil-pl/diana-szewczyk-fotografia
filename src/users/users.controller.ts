@@ -85,7 +85,6 @@ export class UsersController {
       throw new NotFoundException(`User with id ${id} not found`);
     }
     const pictures = await this.pictureService.getUserPictures(id);
-    console.log('pictures:', pictures);
 
     if (pictures.length > 0) {
       for (const picture of pictures) {

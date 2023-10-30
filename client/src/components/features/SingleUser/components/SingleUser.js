@@ -1,52 +1,71 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Alert, Container, Spinner } from 'react-bootstrap';
-import { loadSingleUserRequest } from '../../../../redux/users/userThunks';
+import { loadUserRequest } from '../../../../redux/users/userThunks';
 import {
   getUsersLoadingState,
-  getUsersErrorState,
   getUser,
 } from '../../../../redux/users/userSelectors';
 import { HeroSection } from '../../HeroSection';
-import Heading from '../../Heading/Heading';
 import SingleUserForm from './SingleUserForm';
 import styles from './SingleUser.module.scss';
-import { useParams } from 'react-router-dom';
+import { addCheckboxRequest } from '../../../../redux/pictures/picturesThunks';
+import ModalComponent from '../../ModalComponent/ModalComponent';
+import { getAddCheckboxStates } from '../../../../redux/pictures/picturesSelectors';
+import { useNavigate } from 'react-router-dom';
+import { resetPicturesStates } from '../../../../redux/pictures/picturesActions';
+import { modalMessages } from '../../../../consts/modalMessages';
 
 export const SingleUser = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const navigate = useNavigate();
 
   const isLoading = useSelector(getUsersLoadingState);
-  const errorMessages = useSelector(getUsersErrorState);
 
   useEffect(() => {
-    dispatch(loadSingleUserRequest(id));
-  }, [dispatch, id]);
+    dispatch(loadUserRequest());
+  }, [dispatch]);
 
   const user = useSelector(getUser);
+  const addCheckboxStates = useSelector(getAddCheckboxStates);
+  const { error, success } = addCheckboxStates;
+
+  const handleSubmit = (data) => {
+    dispatch(addCheckboxRequest(data));
+  };
+
+  const handleCloseModal = () => {
+    navigate('/');
+    dispatch(resetPicturesStates());
+  };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <HeroSection />
-      <div className={styles.heading}>
-        <Heading text={user?.surname} />
-      </div>
-      <Container className={styles.container}>
-        {errorMessages && (
+      <Container>
+        {error && (
           <Alert className="alert" variant="danger">
             <Alert.Heading>Error</Alert.Heading>
             <hr />
-            <p>{errorMessages}</p>
+            <p>{error}</p>
           </Alert>
         )}
-        {isLoading && !errorMessages && (
+        {isLoading && !error && (
           <div className="spinnerBox">
             <Spinner className="spinner" animation="border" variant="primary" />
           </div>
         )}
-        {!isLoading && !errorMessages && user && <SingleUserForm data={user} />}
+        {!isLoading && !error && user && (
+          <SingleUserForm action={handleSubmit} user={user} />
+        )}
       </Container>
+
+      <ModalComponent
+        show={success}
+        onClose={handleCloseModal}
+        headerText={modalMessages.addCheckboxSuccess.headerText}
+        textMessage={modalMessages.addCheckboxSuccess.textMessage}
+      />
     </div>
   );
 };

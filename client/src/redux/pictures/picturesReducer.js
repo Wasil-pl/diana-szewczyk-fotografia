@@ -5,10 +5,8 @@ import {
   END_REQUEST,
   ERROR_REQUEST,
   LOAD_PICTURES,
-  ADD_PICTURES,
   ADD_PICTURES_SUCCESS,
   ADD_PICTURES_ERROR,
-  DELETE_PICTURES,
   ADD_CHECKBOX,
   RESET_PICTURES_STATES,
 } from './picturesActionTypes';
@@ -54,20 +52,10 @@ export const picturesReducer = (
         ...statePart,
         all: [...action.payload],
       };
-    case ADD_PICTURES:
-      return {
-        ...statePart,
-        all: [...statePart.all, action.payload],
-      };
     case ADD_CHECKBOX:
       return {
         ...statePart,
         all: [...statePart.all, action.payload],
-      };
-    case DELETE_PICTURES:
-      return {
-        ...statePart,
-        all: [...statePart.all.filter((item) => item._id !== action.payload)],
       };
     case ADD_PICTURES_SUCCESS:
       return {

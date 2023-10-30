@@ -1,3 +1,4 @@
+import { DELETE_PICTURES } from '../pictures/picturesActionTypes';
 import {
   LOAD_USERS,
   LOAD_USER,
@@ -12,6 +13,7 @@ import {
   END_USER_REGISTER_REQUEST,
   GET_USER_ROLE,
   DELETE_USER,
+  DELETE_ALL_USER_PICTURES,
 } from './userActionTypes';
 
 export const usersReducer = (
@@ -74,6 +76,18 @@ export const usersReducer = (
         ...statePart,
         list: statePart.list.filter((user) => user.id !== action.payload),
       };
+    case DELETE_ALL_USER_PICTURES:
+      return {
+        ...statePart,
+        list: statePart.list.map((user) => {
+          if (user.id === action.payload) {
+            return { ...user, pictures: [] };
+          } else {
+            return user;
+          }
+        }),
+      };
+
     default:
       return statePart;
   }

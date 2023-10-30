@@ -28,22 +28,8 @@
       display: flex;
       justify-content: space-evenly;
 
-      .button {
-        display: block;
-        width: 100%;
-        max-width: 200px;
-        padding: 5px;
-        border: 1px solid $color-text-dark;
-        border-radius: 5px;
-        font-size: $base-size;
-        text-align: center;
-        text-decoration: none;
-        transition: $transition;
-
-        &:hover {
-          background-color: $color-text-hover;
-          color: $color-background-light;
-        }
+      button {
+        margin: 2px;
       }
     }
   }
