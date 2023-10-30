@@ -34,7 +34,7 @@ export class PicturesController {
   @UseGuards(AdminAuthGuard)
   @UseGuards(JwtAuthGuard)
   @Post('/')
-  @UseInterceptors(FilesInterceptor('files', 50, multerOptions))
+  @UseInterceptors(FilesInterceptor('files', 100, multerOptions))
   public async postPictures(
     @UploadedFiles() files: Express.Multer.File[],
     @Body('userId', new ParseUUIDPipe()) userId: User['id'],

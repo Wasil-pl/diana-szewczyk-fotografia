@@ -9,8 +9,10 @@ import { modalMessages } from '../../../../consts/modalMessages';
 import { deletePicturesRequest } from '../../../../redux/pictures/picturesThunks';
 
 const AllUsersForm = ({ data }) => {
-  const [pendingDeletion, setPendingDeletion] = useState(null);
-  const clearPendingDeletion = () => setPendingDeletion(null);
+  const [pendingDeletionUser, setPendingDeletionUser] = useState(null);
+  const [pendingDeletionPictures, setPendingDeletionPictures] = useState(null);
+  const clearPendingDeletionUser = () => setPendingDeletionUser(null);
+  const clearPendingDeletionPictures = () => setPendingDeletionPictures(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,20 +27,20 @@ const AllUsersForm = ({ data }) => {
 
   const handleDeleteUser = (e) => {
     e.preventDefault();
-    dispatch(deleteUserRequest(pendingDeletion.id));
-    clearPendingDeletion();
+    dispatch(deleteUserRequest(pendingDeletionUser.id));
+    clearPendingDeletionUser();
   };
 
   const handleDeletePictures = (e) => {
     e.preventDefault();
-    const pictures = pendingDeletion.pictures.map((picture) => {
+    const pictures = pendingDeletionPictures.pictures.map((picture) => {
       return { id: picture.id };
     });
 
-    const userId = pendingDeletion.id;
+    const userId = pendingDeletionPictures.id;
 
     dispatch(deletePicturesRequest(pictures, userId));
-    clearPendingDeletion();
+    clearPendingDeletionPictures();
   };
 
   return (
@@ -75,7 +77,7 @@ const AllUsersForm = ({ data }) => {
                 {user.pictures.length !== 0 && (
                   <Button
                     variant="outline-danger"
-                    onClick={() => setPendingDeletion(user)}
+                    onClick={() => setPendingDeletionPictures(user)}
                     size="sm"
                   >
                     Usuń zdjęcia
@@ -92,7 +94,7 @@ const AllUsersForm = ({ data }) => {
                 )}
                 <Button
                   variant="outline-danger"
-                  onClick={() => setPendingDeletion(user)}
+                  onClick={() => setPendingDeletionUser(user)}
                   size="sm"
                 >
                   Usuń użytkownika
@@ -104,22 +106,22 @@ const AllUsersForm = ({ data }) => {
       </div>
 
       <ModalComponent
-        show={!!pendingDeletion}
+        show={!!pendingDeletionUser}
         onClose={handleDeleteUser}
         headerText={modalMessages.deleteUserConfirm.headerText(
-          pendingDeletion?.surname,
+          pendingDeletionUser?.surname,
         )}
         textMessage={modalMessages.deleteUserConfirm.textMessage}
-        onCancel={clearPendingDeletion}
+        onCancel={clearPendingDeletionUser}
         actionText="Delete"
       />
 
       <ModalComponent
-        show={!!pendingDeletion}
+        show={!!pendingDeletionPictures}
         onClose={handleDeletePictures}
         headerText={modalMessages.deletePicturesConfirm.headerText}
         textMessage={modalMessages.deletePicturesConfirm.textMessage}
-        onCancel={clearPendingDeletion}
+        onCancel={clearPendingDeletionPictures}
         actionText="Delete"
       />
     </div>
