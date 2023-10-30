@@ -31,10 +31,10 @@ import { AuthModule } from './auth/auth.module';
       rootPath: join(__dirname, '../../', 'public'),
       serveRoot: '/public',
     }),
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(__dirname, '../../', 'client', 'build'),
-    //   renderPath: '*',
-    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'client', 'build'),
+      renderPath: '*',
+    }),
   ],
 
   controllers: [AppController],
